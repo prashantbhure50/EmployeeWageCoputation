@@ -11,19 +11,26 @@ namespace EmployeeWageCoputation
             int fullTime = 1;
             int partTime = 0;
             int empRate = 20;
-
-            int empHrs = 0;
-            int empPartHrs = 0;
-            int empWage = 1;
+            int empHrs = 1;
+            int empPartHrs = 1;
+            int empWage = 0;
             Random random = new Random();
             int empCheck = random.Next(0, 2);
-            if (empCheck == fullTime)
-                empHrs = 8;
-            else if (empCheck == partTime)
-                empPartHrs = 4;
+            switch (empCheck)
+            {
+                case 0:
+                    empWage = empHrs * 8 * empRate;
+                    break;
 
-            empWage = empHrs * empRate;
-            empPartHrs = empPartHrs * empRate;
+                case 1:
+                    empPartHrs = empPartHrs * 4 * empRate;
+                    break;
+
+
+
+
+            }
+
             Console.WriteLine("Emp full Time Wage: " + empWage);
             Console.WriteLine("Emp part time Wage :" + empPartHrs);
             Console.ReadKey();
